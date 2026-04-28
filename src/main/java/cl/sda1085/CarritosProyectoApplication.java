@@ -1,4 +1,4 @@
-package com.proyecto.carritos_proyecto;
+package cl.sda1085;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

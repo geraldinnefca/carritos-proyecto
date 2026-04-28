@@ -8,7 +8,7 @@
 		<version>4.1.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.proyecto</groupId>
+	<groupId>cl.sda1085</groupId>
 	<artifactId>carritos-proyecto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
