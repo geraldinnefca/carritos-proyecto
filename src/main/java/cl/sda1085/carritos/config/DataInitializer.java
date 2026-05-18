@@ -14,7 +14,6 @@ import java.util.List;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-
 public class DataInitializer implements CommandLineRunner {
 
     private final CarritoRepository carritoRepository;
@@ -25,9 +24,7 @@ public class DataInitializer implements CommandLineRunner {
             log.info("La base de datos de carritos ya contiene datos. Omitiendo inicialización.");
             return;
         }
-
         log.info("Iniciando la creación de items de carrito de prueba...");
-
 
 
     Carrito item1 = new Carrito(
@@ -50,7 +47,6 @@ public class DataInitializer implements CommandLineRunner {
             "ACTIVO"
     );
 
-
     Carrito item3 = new Carrito(
             null,
             8L,
@@ -60,7 +56,6 @@ public class DataInitializer implements CommandLineRunner {
             LocalDateTime.now(),
             "ACTIVO"
     );
-
 
     Carrito item4 = new Carrito(
             null,
@@ -72,7 +67,6 @@ public class DataInitializer implements CommandLineRunner {
             "COMPRADO"
     );
 
-
     Carrito item5 = new Carrito(
             null,
             6L,
@@ -83,12 +77,9 @@ public class DataInitializer implements CommandLineRunner {
             "ABANDONADO"
     );
 
-
         carritoRepository.saveAll(List.of(item1, item2, item3, item4, item5));
 
         log.info("¡Éxito! Se han registrado 5 registros en la base de datos de Carritos.");
         log.info("Sincronización lógica completada: Productos y precios mapeados correctamente.");
+    }
 }
-
-}
-
