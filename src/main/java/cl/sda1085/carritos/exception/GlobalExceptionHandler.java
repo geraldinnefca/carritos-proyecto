@@ -11,9 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-
 public class GlobalExceptionHandler {
 
+    //Recurso NO encontrado (404 - Not Found)
     @ExceptionHandler(CarritoNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleNotFound(CarritoNotFoundException ex) {
         Map<String, String> error = new HashMap<>();
@@ -22,6 +22,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
+    //Errores de Validación (400 - Bad Request)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errores = new HashMap<>();
@@ -35,6 +36,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errores, HttpStatus.BAD_REQUEST);
     }
 
+    //Manejador Global de Errores Internos (500 - Internal Server Error)
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, String>> handleGeneric(Exception ex) {
         Map<String, String> error = new HashMap<>();
@@ -42,5 +44,4 @@ public class GlobalExceptionHandler {
         error.put("detalle", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
 }

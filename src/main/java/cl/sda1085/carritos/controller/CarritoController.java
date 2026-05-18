@@ -65,8 +65,8 @@ public class CarritoController {
     //Buscar ítems por usuario y por su estado
     //GET /api/carritos/usuario/1/estado/ACTIVO
     @GetMapping("/usuario/{idUsuario}/estado/{estado}")
-    public ResponseEntity<List<CarritoResponseDTO>> obtenerCarritoPorUsuario(@PathVariable Long idUsuario,
-                                                                             @PathVariable String estado) {
+    public ResponseEntity<List<CarritoResponseDTO>> obtenerCarritoPorUsuario(
+            @PathVariable Long idUsuario, @PathVariable String estado) {
 
         return ResponseEntity.ok(carritoService.obtenerCarritoPorIdUsuario(idUsuario, estado));
     }
@@ -79,14 +79,6 @@ public class CarritoController {
             @RequestParam(defaultValue = "ACTIVO") String estado) {
 
         return ResponseEntity.ok(carritoService.contarPorUsuarioYEstado(idUsuario, estado));
-    }
-
-    //Vaciar por completo el carrito de un usuario
-    //DELETE /api/carritos/usuario/1
-    @DeleteMapping("/usuario/{idUsuario}")
-    public ResponseEntity<Void> vaciarCarrito(@PathVariable Long idUsuario) {
-        carritoService.vaciarCarritoPorIdUsuario(idUsuario);
-        return ResponseEntity.noContent().build();
     }
 
     //Buscar un ítem específico del catálogo en el carrito
@@ -105,5 +97,13 @@ public class CarritoController {
     @GetMapping("/usuario/{idUsuario}/total")
     public ResponseEntity<BigDecimal> obtenerTotalCarrito(@PathVariable Long idUsuario) {
         return ResponseEntity.ok(carritoService.calcularTotalCarrito(idUsuario));
+    }
+
+    //Vaciar por completo el carrito de un usuario
+    //DELETE /api/carritos/usuario/1
+    @DeleteMapping("/usuario/{idUsuario}")
+    public ResponseEntity<Void> vaciarCarrito(@PathVariable Long idUsuario) {
+        carritoService.vaciarCarritoPorIdUsuario(idUsuario);
+        return ResponseEntity.noContent().build();
     }
 }

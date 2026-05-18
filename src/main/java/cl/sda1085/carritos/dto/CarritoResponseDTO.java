@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
-
 public class CarritoResponseDTO {
 
     private Long id;
@@ -16,8 +15,7 @@ public class CarritoResponseDTO {
     private Long idProducto;
     private Integer cantidad;
     private BigDecimal precioUnitario;
-    private BigDecimal subtotal; // Campo calculado
+    private BigDecimal subtotal;  //Campo calculado
     private String estado;
     private LocalDateTime fechaAgregado;
-
 }

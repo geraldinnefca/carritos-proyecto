@@ -8,7 +8,6 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-
 public class CarritoRequestDTO {
 
         @NotNull(message = "ID de usuario es obligatorio")
@@ -23,5 +22,4 @@ public class CarritoRequestDTO {
         @NotNull(message = "El precio es obligatorio")
         @Positive(message = "El precio debe ser mayor a cero")
         private BigDecimal precioUnitario;
-    }
-
+}
