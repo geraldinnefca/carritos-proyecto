@@ -1,4 +1,4 @@
-# Microservicio de Carrito y Pre-Órdenes ('carrito')
+# Microservicio de Carrito y Pre-Órdenes ('carritos')
 
 ## Integrantes
 * **Gonzalo Hormazábal**
