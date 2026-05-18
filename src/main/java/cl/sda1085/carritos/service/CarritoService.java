@@ -101,6 +101,8 @@ public class CarritoService {
         log.info("Solicitud de actualización manual para el item de carrito ID: {}", id);
 
         return carritoRepository.findById(id).map(existente -> {
+            existente.setIdUsuario(dto.getIdUsuario());
+            existente.setIdProducto(dto.getIdProducto());
             existente.setCantidad(dto.getCantidad());
             existente.setPrecioUnitario(dto.getPrecioUnitario());
 
@@ -108,7 +110,8 @@ public class CarritoService {
             log.info("Éxito: Item de carrito ID {} actualizado a cantidad: {}", id, dto.getCantidad());
             return convertirADTO(actualizado);
         })
-                .orElseThrow(() -> {log.warn("Actualización denegada: El item de carrito ID {} no existe en la base de datos", id);
+                .orElseThrow(() -> {
+                    log.warn("Actualización denegada: El item de carrito ID {} no existe en la base de datos", id);
                     return new CarritoNotFoundException(id);
                 });
     }
