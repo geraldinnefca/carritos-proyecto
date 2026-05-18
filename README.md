@@ -1,5 +1,9 @@
 # Microservicio de Carrito y Pre-Órdenes ('carrito')
 
+## Integrantes
+* **Gonzalo Hormazábal**
+* **Geraldinne González**
+
 ## Descripción
 Módulo intermedio que agrupa los lotes ganados por un mismo usuario antes de proceder a la facturación y despacho unificado, simulando un flujo de pre-orden de compra.
 
